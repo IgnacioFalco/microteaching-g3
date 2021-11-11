@@ -9,6 +9,9 @@ import (
 func procesoQuePuedeTardarMucho(nombre string) <-chan int {
 	r := make(chan int)
 
+	// invocamos una funcion anonima de forma concurrente, para no bloquear la ejecucion del programa
+	// Todas las funciones que requieran un valor en el canal que es retornado, van a esperar a que
+	// dicho valor sea escrito en el canal (ver invocación a "sumar" en el main)
 	go func() {
 		// aca simulamos un proceso que puede ser lento y de tiempo variable
 		// como una consulta HTTP a una API, un query a una base de datos
