@@ -6,12 +6,14 @@ import (
 	"time"
 )
 
+// esta funcion devuelve un numero entero aleatorio, despues de un tiempo variable de espera
 func procesoQuePuedeTardarMucho(nombre string) int {
 
 	inicio := time.Now().UnixMilli() // inicio y fin son usados para medir el tiempo de ejecucion
 	// aca simulamos un proceso que puede ser lento y de tiempo variable
-	// como una consulta HTTP a una API, un query a una base de datos
-	// lectura de un archivo en disco, etc
+	// como una consulta HTTP a una API, un query a una base de datos,
+	// lectura de un archivo en disco, etc.
+
 	time.Sleep(time.Millisecond * time.Duration(rand.Intn(5*1000))) // esperamos un tiempo aleatorio, entre 0 y 5 segundos
 	r := rand.Intn(100)
 	fin := time.Now().UnixMilli()

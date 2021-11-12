@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// esta funcion devuelve un canal de enteros,
+// donde se va a escribir un numero aleatorio despues de un tiempo variable de espera
 func procesoQuePuedeTardarMucho(nombre string) <-chan int {
 	r := make(chan int)
 
@@ -14,8 +16,8 @@ func procesoQuePuedeTardarMucho(nombre string) <-chan int {
 	// dicho valor sea escrito en el canal (ver invocación a "sumar" en el main)
 	go func() {
 		// aca simulamos un proceso que puede ser lento y de tiempo variable
-		// como una consulta HTTP a una API, un query a una base de datos
-		// lectura de un archivo en disco, etc
+		// como una consulta HTTP a una API, un query a una base de datos,
+		// lectura de un archivo en disco, etc.
 
 		inicio := time.Now().UnixMilli()                                // inicio y fin son usados para medir el tiempo de ejecucion
 		time.Sleep(time.Millisecond * time.Duration(rand.Intn(5*1000))) // esperamos un tiempo aleatorio, entre 0 y 5 segundos
