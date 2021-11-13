@@ -20,7 +20,9 @@ func procesoQuePuedeTardarMucho(nombre string) <-chan int {
 		// lectura de un archivo en disco, etc.
 
 		inicio := time.Now().UnixMilli()                                // inicio y fin son usados para medir el tiempo de ejecucion
-		time.Sleep(time.Millisecond * time.Duration(rand.Intn(5*1000))) // esperamos un tiempo aleatorio, entre 0 y 5 segundos
+		duracion := time.Millisecond * time.Duration(rand.Intn(5*1000)) // tiempo aleatorio, entre 0 y 5 segundos
+		fmt.Printf("%s va a durar: ~%d milisegundos\n", nombre, duracion/1000000)
+		time.Sleep(duracion) // esperamos
 		fin := time.Now().UnixMilli()
 		fmt.Printf("%s duró %d milisegundos\n", nombre, fin-inicio)
 

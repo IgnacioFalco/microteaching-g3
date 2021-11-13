@@ -14,7 +14,9 @@ func procesoQuePuedeTardarMucho(nombre string) int {
 	// como una consulta HTTP a una API, un query a una base de datos,
 	// lectura de un archivo en disco, etc.
 
-	time.Sleep(time.Millisecond * time.Duration(rand.Intn(5*1000))) // esperamos un tiempo aleatorio, entre 0 y 5 segundos
+	duracion := time.Millisecond * time.Duration(rand.Intn(5*1000)) // tiempo aleatorio, entre 0 y 5 segundos
+	fmt.Printf("%s va a durar: ~%d milisegundos\n", nombre, duracion/1000000)
+	time.Sleep(duracion) // esperamos
 	r := rand.Intn(100)
 	fin := time.Now().UnixMilli()
 	fmt.Printf("%s duró %d milisegundos\n", nombre, fin-inicio)
